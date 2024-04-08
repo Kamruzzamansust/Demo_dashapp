@@ -3,7 +3,7 @@ import requests
 import csv 
 def main():
     
-    st.title('This will impliment autometically using CI/CD usinh github actions')
+    st.title('This will impliment autometically using CI/CD using github actions')
 
     
     age = st.number_input('Age', min_value=0, max_value=120, value=30)
