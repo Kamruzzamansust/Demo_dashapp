@@ -3,7 +3,7 @@ import requests
 import csv 
 def main():
     
-    st.title('This will impliment autometically using CI/CD using github actions')
+    st.title('Food delivery status If Yes then Order will Proceed If No then Order will be Canceled ')
 
     
     age = st.number_input('Age', min_value=0, max_value=120, value=30)
