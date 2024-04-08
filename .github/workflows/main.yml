@@ -1,0 +1,29 @@
+name: Deploy Streamlit App
+
+on:
+  push:
+    paths:
+      - 'frontend/app.py'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Add steps to run tests if applicable
+
+      - name: Deploy to Streamlit Cloud
+        run: |
+          # Add commands to deploy your Streamlit app to Streamlit Cloud
+          # Example: streamlit deploy frontend/app.py --https://demodashapp-ldmwnkxrdrkadwquuzjqna.streamlit.app/
