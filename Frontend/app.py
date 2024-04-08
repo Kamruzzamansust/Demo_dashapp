@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import csv 
 def main():
-   
+    
     st.title('Model Prediction')
 
     
@@ -27,7 +27,8 @@ def main():
             'Family_size': family_size,
             'Feedback': feedback
         }
-        response = requests.post('http://localhost:8000/predict', json=data)
+        #response = requests.post('http://localhost:8000/predict', json=data)
+        response = requests.post('http://backend:80/predict/', json=data)
         if response.status_code == 200:
             prediction = response.json()['prediction']
             return prediction
