@@ -3,7 +3,7 @@ import requests
 import csv 
 def main():
     
-    st.title('Model Prediction')
+    st.title('Model Prediction for cicd')
 
     
     age = st.number_input('Age', min_value=0, max_value=120, value=30)
