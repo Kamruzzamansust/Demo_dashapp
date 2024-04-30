@@ -1,11 +1,11 @@
 import streamlit as st
 import requests
 import csv 
+
 def main():
     
     st.title('Food delivery status If Yes then Order will Proceed If No then Order will be Canceled ')
 
-    
     age = st.number_input('Age', min_value=0, max_value=120, value=30)
     gender = st.radio('Gender', ['Male', 'Female'])
     marital_status = st.radio('Marital Status', ['Single', 'Married'])
@@ -15,7 +15,6 @@ def main():
     family_size = st.number_input('Family Size', min_value=1,max_value=6, value=1)
     feedback = st.number_input('Feedback', min_value=0,max_value=1, value=1)
 
-   
     def make_prediction(age, gender, marital_status, occupation, monthly_income, educational_qualifications, family_size, feedback):
         data = {
             'Age': age,
@@ -27,19 +26,16 @@ def main():
             'Family_size': family_size,
             'Feedback': feedback
         }
-        #response = requests.post('http://localhost:8000/predict', json=data)
-        response = requests.post('http://backend:80/predict/', json=data)
+        response = requests.post('http://localhost:8000/predict', json=data)
         if response.status_code == 200:
             prediction = response.json()['prediction']
             return prediction
         else:
             st.error('Error: Unable to get prediction from server')
 
-  
     if st.button('Predict'):
         prediction = make_prediction(age, gender, marital_status, occupation, monthly_income, educational_qualifications, family_size, feedback)
         if prediction is not None:
-          
             input_data = [age, gender, marital_status, occupation, monthly_income, educational_qualifications, family_size, feedback, prediction]
             with open('input_data.csv', 'a', newline='') as file:
                 writer = csv.writer(file)
