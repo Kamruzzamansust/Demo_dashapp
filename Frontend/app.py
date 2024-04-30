@@ -4,7 +4,7 @@ import csv
 
 def main():
     
-    st.title('Food delivery status If Yes then Order will Proceed If No then Order will be Canceled ')
+    st.title('Food delivery')
 
     age = st.number_input('Age', min_value=0, max_value=120, value=30)
     gender = st.radio('Gender', ['Male', 'Female'])
