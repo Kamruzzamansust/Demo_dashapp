@@ -26,4 +26,4 @@ jobs:
       - name: Deploy to Streamlit Cloud
         run: |
           # Add commands to deploy your Streamlit app to Streamlit Cloud
-          # Example: streamlit deploy frontend/app.py --https://demodashapp-ldmwnkxrdrkadwquuzjqna.streamlit.app/
+          # Example: streamlit deploy frontend/app.py --https://Food_Delivery_Status_with_XGBOOST_and_Streamlit-ldmwnkxrdrkadwquuzjqna.streamlit.app/
